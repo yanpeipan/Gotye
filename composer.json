@@ -10,5 +10,6 @@
             "name": "yanpeipan",
             "email": "yanpeipan_82@qq.com"
         }
-    ]
+    ],
+    "minimum-stability": "stable"
 }
