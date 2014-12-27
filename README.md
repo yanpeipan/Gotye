@@ -13,7 +13,7 @@ composer require yanpeipan/gotye:dev-master
 
 ```
 require 'vendor/autoload.php';
-$gotye = new Yan\gotye();
+$gotye = new Yan\gotye($email, $devpwd, $appkey);
 ```
 
 用户管理,群管理可直接使用形参

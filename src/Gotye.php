@@ -45,6 +45,19 @@ class Gotye {
     const COMMAND_GET_MSG_HISTORY = 'GetMsgHistory';
 
     /**
+     * 初始化
+     * 
+     * @param string $email 开发者账号，必选项
+     * @param string $devpwd 开发者密码，必选项
+     * @param string $appkey 应用的appkey，必选项
+     */
+    public function __construct($email, $devpwd, $appkey) {
+        $this->email = $email;
+        $this->devpwd = $devpwd;
+        $this->appkey = $appkey;
+    }
+
+    /**
      * 魔法函数
      * 用户调用用户管理，群管理之外的接口
      * 
