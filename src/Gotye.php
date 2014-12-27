@@ -1,5 +1,7 @@
 <?php
 
+namespace Yan;
+
 /**
  * 亲加通讯云
  * 
