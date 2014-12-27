@@ -1,5 +1,5 @@
 {
-    "name": "yanpeipan/gotye",
+    "name": "yanpeipan/Gotye",
     "description": "亲加通讯云后台 API接口",
     "require": {
         "ext-curl":"*",
