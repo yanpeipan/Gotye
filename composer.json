@@ -1,0 +1,14 @@
+{
+    "name": "yanpeipan/gotye",
+    "description": "亲加通讯云后台 API接口",
+    "require": {
+        "ext-curl": "0.0.0.*"
+    },
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "yanpeipan",
+            "email": "yanpeipan_82@qq.com"
+        }
+    ]
+}
