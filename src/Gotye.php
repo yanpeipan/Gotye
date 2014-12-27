@@ -94,7 +94,7 @@ class Gotye {
      */
     public function encrypt($password) {
         if (strlen($password) < 6) {
-            throw new Exception('The length of Gotye Password must be in 6-16');
+            throw new \Exception('The length of Gotye Password must be in 6-16');
         } elseif (strlen($password) > 16) {
             $password = substr($password, 0, 16);
         }
