@@ -6,13 +6,14 @@ Gotye
 # 安装
 
 ```
-composer require yanpeipan/gotye
+composer require yanpeipan/gotye:dev-master
 ```
 
 # 使用
 
 ```
-$gotye = new Gotye();
+require 'vendor/autoload.php';
+$gotye = new Yan\gotye();
 ```
 
 用户管理,群管理可直接使用形参
