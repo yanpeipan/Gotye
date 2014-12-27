@@ -14,8 +14,18 @@ class Gotye {
     public $appkey = '';
 
     const COMMAND_BASE_URL = 'https://qplusapi.gotye.com.cn:8443/api/';
+    //用户管理
     const COMMAND_IMPORT_USERS = 'ImportUsers';
     const COMMAND_MODIFY_USER_PWD = 'ModifyUserPwd';
+    const COMMAND_GET_USER_LIST = 'GetUserlist';
+    const COMMAND_DEL_BLACK_LIST = 'DelBlacklist';
+    const COMMAND_ADD_BLACK_LIST = 'AddBlacklist';
+    const COMMAND_DISABLE_SAY = 'DisableSay';
+    const COMMAND_GET_DISABLE_SAYS = 'GetDisableSays';
+    //敏感词
+    const COMMAND_SETUP_KEYWORD = 'SetupKeyword';
+    const COMMAND_GET_KEYWORD = 'GetKeyword';
+    //群管理
     const COMMAND_CREATE_GROUP = 'CreateGroup';
     const COMMAND_MODIFY_GROUP = 'ModifyGroup';
     const COMMAND_DISMISS_GROUP = 'DismissGroup';
@@ -24,6 +34,41 @@ class Gotye {
     const COMMAND_DEL_GROUP_MEMBER = 'DelGroupMember';
     const COMMAND_GET_GROUPS = 'GetGroups';
     const COMMAND_GET_GROUP_DETAIL = 'GetGroupDetail';
+    //聊天室管理
+    const COMMAND_CREATE_ROOM = 'CreateRoom';
+    const COMMAND_DELETE_ROOM = 'DeleteRoom';
+    const COMMAND_GET_ROOMS = 'GetRooms';
+    //消息处理
+    const COMMAND_SEND_MSG = 'SendMsg';
+    const COMMAND_GET_MSG_HISTORY = 'GetMsgHistory';
+
+    /**
+     * 魔法函数
+     * 用户调用用户管理，群管理之外的接口
+     * 
+     * @example new Gotye()->SetupKeyword(array('key_word' => '错误码,错误', 'setup_type' => '1'))
+     * @param type $name
+     * @param type $arguments
+     * @return type
+     */
+    public function __call($name, $arguments) {
+
+        if (isset($arguments[0])) {
+            $arguments = $arguments[0];
+        }
+        return $this->request($name, $arguments);
+    }
+
+    /**
+     * 发送请求
+     * 
+     * @param type $method
+     * @param type $params
+     * @return type
+     */
+    public function request($method, $params) {
+        return $this->send($this->getUrl($method), $this->getPostFields($params));
+    }
 
     /**
      * 密码加密
@@ -121,6 +166,17 @@ class Gotye {
     public function ImportUsers(array $users) {
         $users = array('users' => $users);
         return $this->send($this->getUrl(self::COMMAND_IMPORT_USERS), $this->getPostFields($users));
+    }
+
+    /**
+     * 获得用户列表
+     * 
+     * @param type $index 分页下标，必选项
+     * @param type $count 分页的条数，可选项。默认为20
+     */
+    public function GetUserlist($index, $count = 20) {
+        $data = array('index' => $index, 'count' => $count);
+        return $this->send($this->getUrl(self::COMMAND_GET_USER_LIST), $this->getPostFields($data));
     }
 
     /**
