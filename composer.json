@@ -1,7 +1,7 @@
 {
     "name": "yanpeipan/gotye",
     "description": "亲加通讯云后台 API接口",
-    "license": "BSD-3-Clause",
+    "license": "GPL-2.0",
     "authors": [
         {
             "name": "yanpeipan",
