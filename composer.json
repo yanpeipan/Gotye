@@ -1,12 +1,12 @@
 {
     "name": "yanpeipan/gotye",
     "description": "亲加通讯云后台 API接口",
+    "minimum-stability": "dev",
     "require": {
         "lib-curl":"*",
         "php":">=5.3.3"
     },
     "license": "GPL-3.0+",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "yanpeipan",
